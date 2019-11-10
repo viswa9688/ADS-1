@@ -1,0 +1,64 @@
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+/**
+ *  
+ *  @author Robert Sedgewick
+ *  @author Harika
+ *
+ *  @param <Key> the generic type of key on this priority queue
+ */
+
+    /**
+     * Initializes an empty priority queue with the given initial capacity.
+     *
+     * @param  initCapacity the initial capacity of this priority queue
+     */
+    public MinPQ(int initCapacity) {
+        pq = (Key[]) new Object[initCapacity + 1];
+        n = 0;
+    }
+
+    /**
+     * Initializes an empty priority queue.
+     */
+    public MinPQ() {
+        this(1);
+    }
+
+    /**
+     * Initializes an empty priority queue with the given initial capacity,
+     * using the given comparator.
+     *
+     * @param  initCapacity the initial capacity of this priority queue
+     * @param  comparator the order in which to compare the keys
+     */
+    public MinPQ(int initCapacity, Comparator<Key> comparator) {
+        this.comparator = comparator;
+        pq = (Key[]) new Object[initCapacity + 1];
+        n = 0;
+    }
+
+   /** 
+    * Helper functions to restore the heap invariant.
+    */
+
+    private void swim(int k) {
+        while (k > 1 && greater(k/2, k)) {
+            exch(k, k/2);
+            k = k/2;
+        }
+    }
+
+    private void sink(int k) {
+        while (2*k <= n) {
+            int j = 2*k;
+            if (j < n && greater(j, j+1)) j++;
+            if (!greater(k, j)) break;
+            exch(k, j);
+            k = j;
+        }
+    }
+
+}
