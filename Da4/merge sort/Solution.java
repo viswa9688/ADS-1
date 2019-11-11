@@ -12,36 +12,60 @@ class Solution {
         String[] aux = new String[arr.length];
         sort(arr, aux, 0, arr.length-1);
         return arr;
-    }
-    private static void sort(String[] arr, String[] aux, int lo, int hi) {
-        if (hi <= lo) return;
-        int mid = lo + (hi - lo) / 2;
-        sort(arr, aux, lo, mid);
-        sort(arr, aux, mid + 1, hi);
-        merge(arr, aux, lo, mid, hi);
-    }
-
-    /**
-     * @param arr original array
-     * @param aux aux array
-     * @param lo lower bound array
-     * @param mid middle element
-     * @param hi higher bound array.
-     */
-
-    private static void merge(String[] arr, String[] aux, int lo, int mid, int hi) {
-        
-        for (int k = lo; k <= hi; k++) {
-            aux[k] = arr[k]; 
-        }
-        
-        int i = lo, j = mid+1;
-        for (int k = lo; k <= hi; k++) {
-            if      (i > mid)              arr[k] = aux[j++];
-            else if (j > hi)               arr[k] = aux[i++];
-            else if (aux[j].compareTo(aux[i]) < 0) arr[k] = aux[j++];
-            else                           arr[k] = aux[i++];
-        }        
-        
+    void merge(int arr[], int l, int m, int r) 
+    { 
+        // Find sizes of two subarrays to be merged 
+        int n1 = m - l + 1; 
+        int n2 = r - m; 
+  
+        /* Create temp arrays */
+        int L[] = new int [n1]; 
+        int R[] = new int [n2]; 
+  
+        /*Copy data to temp arrays*/
+        for (int i=0; i<n1; ++i) 
+            L[i] = arr[l + i]; 
+        for (int j=0; j<n2; ++j) 
+            R[j] = arr[m + 1+ j]; 
+  
+  
+        /* Merge the temp arrays */
+  
+        // Initial indexes of first and second subarrays 
+        int i = 0, j = 0; 
+  
+        // Initial index of merged subarry array 
+        int k = l; 
+        while (i < n1 && j < n2) 
+        { 
+            if (L[i] <= R[j]) 
+            { 
+                arr[k] = L[i]; 
+                i++; 
+            } 
+            else
+            { 
+                arr[k] = R[j]; 
+                j++; 
+            } 
+            k++; 
+        } 
+  
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) 
+        { 
+            arr[k] = L[i]; 
+            i++; 
+            k++; 
+        } 
+  
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) 
+        { 
+            arr[k] = R[j]; 
+            j++; 
+            k++; 
+        } 
+    }    
     }
 }
