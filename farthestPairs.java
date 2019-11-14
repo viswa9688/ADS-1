@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 class farthestPairs
 {
-    
+    // input array size.
+    //Input array elements.
     public static void main(String[] args)
     {
         Scanner sc= new Scanner(System.in);
@@ -20,6 +21,8 @@ class farthestPairs
 
 
         }
+        // initializng the high variable to the first array element
+        // intializing the low variable also to the second array element.
         double high=arr[0];
         double low=arr[0];
         
