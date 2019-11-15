@@ -1,0 +1,25 @@
+/* LinkedQueue.java */
+class LinkedQueue <Item> implements Queue <Item>
+{
+  private Node front, rear; //begin and end nodes
+  private int size; // number of items
+ 
+  //nested class to define node
+  private class Node
+  { 
+    Item item;
+    Node next;
+  }
+ 
+  //Zero argument constructor
+  public LinkedQueue()
+  {
+    front = null;
+	rear = null;
+    size = 0;
+  }
+ 
+  public boolean isEmpty()
+  {
+    return (size == 0);
+  }
