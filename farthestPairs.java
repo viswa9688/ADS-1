@@ -1,5 +1,6 @@
 import java.util.Scanner;
 /* @author name is Surya */
+// Complexity is o(n).
 
 class farthestPairs
 {
