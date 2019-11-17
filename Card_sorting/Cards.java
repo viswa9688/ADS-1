@@ -7,11 +7,13 @@ class Cards
     String card_value;
     int Suite;
     int Card_value;
+     
+    String final_name;
     
     int final_value=0;
-    List<Integer> final_value_array = new ArrayList<>();
+    
 
-    public Cards(int Suite, int Card_value)
+    public Cards(String Suite_name,String card_value,int Suite, int Card_value)
     {
         
         // System.out.println("Enter the Suite option number: ");
@@ -21,68 +23,30 @@ class Cards
         // System.out.println("4.Spades");
         // System.out.println("Card_value");
         
-        if(Suite==1)
-        {
-            Suite=1;
-        }
-        else if(Suite==2)
-        {
-            Suite=2;
-        }
-        else if(Suite==3)
-        {
-            Suite=3;
-        }
-        else if(Suite==4)
-        {
-            Suite=4;
-        }
-        if(Card_value==1)
-        {
-            Card_value=1;
-        }
-        if(Card_value==2)
-        {
-            Card_value=2;
-        }
-        if(Card_value==3)
-        {
-            Card_value=3;
-        }if(Card_value==4)
-        {
-            Card_value=4;
-        }if(Card_value==5)
-        {
-            Card_value=5;
-        }if(Card_value==6)
-        {
-            Card_value=6;
-        }if(Card_value==7)
-        {
-            Card_value=7;
-        }if(Card_value==8)
-        {
-            Card_value=8;
-        }if(Card_value==9)
-        {
-            Card_value=9;
-        }if(Card_value==10)
-        {
-            Card_value=10;
-        }if(Card_value==11)
-        {
-            Card_value=11;
-        }if(Card_value==12)
-        {
-            Card_value=12;
-        }if(Card_value==13)
-        {
-            Card_value=13;
-        }
+        this.Suite=Suite;
+        this.Suite_name=Suite_name;
+        this.card_value=card_value;
+        this.Card_value=Card_value;
         final_value=Suite+Card_value;
-        final_value_array.add(final_value);
-        System.out.println(final_value_array);
+        final_name=Suite_name+" "+card_value;
         
+        //System.out.println(Suite_name);
+        //System.out.println(card_value);
 
+        
+        
+    }
+    public String final_name(String Suite_name ,String card_value)
+    {
+        
+        final_name=Suite_name+card_value;
+        System.out.println(final_name);
+        return final_name;
+    }
+    public int final_value(int Card_value, int Suite)
+    {
+        final_value=Card_value+Suite;
+        System.out.println(final_value);
+        return final_value;
     }
 }
