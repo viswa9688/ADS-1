@@ -1,3 +1,5 @@
+// @ author Surya
+// O(insertion) is constant.
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
